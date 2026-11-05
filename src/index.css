@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Abril+Fatface&family=Albert+Sans:wght@300;400;500;600;700&family=Brygada+1918:wght@400;500;600;700&family=Monoton&family=Send+Flowers&family=Titan+One&family=DM+Serif+Display&family=Merriweather:wght@300;400;700&family=Libre+Baskerville:wght@400;700&family=Passion+One:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 27 43% 96%;
+    --foreground: 170 22% 23%;
+    --card: 0 0% 100%;
+    --card-foreground: 170 22% 23%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 170 22% 23%;
+    --primary: 34 47% 42%;
+    --primary-foreground: 27 43% 96%;
+    --secondary: 170 22% 23%;
+    --secondary-foreground: 27 43% 96%;
+    --muted: 28 33% 92%;
+    --muted-foreground: 170 12% 42%;
+    --accent: 17 77% 62%;
+    --accent-foreground: 27 43% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 25% 85%;
+    --input: 30 25% 85%;
+    --ring: 34 47% 42%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 170 22% 12%;
+    --foreground: 27 43% 96%;
+    --card: 170 22% 15%;
+    --card-foreground: 27 43% 96%;
+    --popover: 170 22% 15%;
+    --popover-foreground: 27 43% 96%;
+    --primary: 36 44% 59%;
+    --primary-foreground: 170 22% 12%;
+    --secondary: 170 22% 20%;
+    --secondary-foreground: 27 43% 96%;
+    --muted: 170 15% 20%;
+    --muted-foreground: 27 20% 65%;
+    --accent: 17 77% 52%;
+    --accent-foreground: 27 43% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 170 15% 25%;
+    --input: 170 15% 25%;
+    --ring: 36 44% 59%;
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
