@@ -21,6 +21,7 @@ export default function Blog() {
         title="Blog - Heart to Soul Psychotherapy | Mental Health & Wellness Insights"
         description="Insights, tips, and strategies for better mental health and wellbeing from Heart to Soul Psychotherapy."
         keywords="mental health blog, wellness tips, self-care advice"
+        noindex={posts.length === 0} // keep the empty blog out of search until posts exist
       />
       <main className="min-h-screen">
         <PageHero

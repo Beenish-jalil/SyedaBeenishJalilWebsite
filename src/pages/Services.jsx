@@ -10,7 +10,7 @@ import BackToTop from "@/components/BackToTop";
 import { GradientBlobs } from "@/components/CTASection";
 import { useScrollAnimation } from "@/lib/useScrollAnimation";
 import { createPageUrl } from "@/lib/utils";
-import { IMG } from "@/data/site";
+import { IMG, SITE_URL } from "@/data/site";
 
 const TABS = ["individual", "community", "parental", "family"];
 
@@ -18,8 +18,19 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "Service",
   serviceType: "Mental Health Services",
-  provider: { "@type": "Organization", name: "Heart to Soul Psychotherapy" },
-  areaServed: "CA",
+  provider: { "@type": "Organization", "@id": `${SITE_URL}/#practice`, name: "Heart to Soul Psychotherapy" },
+  areaServed: { "@type": "State", name: "Ontario" },
+  availableChannel: { "@type": "ServiceChannel", availableLanguage: ["English", "Urdu", "Hindi"] },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Psychotherapy services",
+    itemListElement: [
+      ["Adult/Teen Psychotherapy", "adult-teen-psychotherapy"],
+      ["Family Psychotherapy", "family-psychotherapy"],
+      ["Parental Consultation", "parental-consultation"],
+      ["Community Programs", "community-programs"],
+    ].map(([name, id]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name, url: `${SITE_URL}/service/${id}` } })),
+  },
 };
 
 const triggerClass =

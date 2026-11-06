@@ -1,9 +1,11 @@
 import { useLocation } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 export default function NotFound() {
   const page = useLocation().pathname.substring(1);
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-slate-50">
+      <SEO title="Page Not Found - Heart to Soul Psychotherapy" noindex />
       <div className="max-w-md w-full">
         <div className="text-center space-y-6">
           <div className="space-y-2">

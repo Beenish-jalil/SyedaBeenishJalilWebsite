@@ -7,23 +7,44 @@ import BackToTop from "@/components/BackToTop";
 import { GradientBlobs } from "@/components/CTASection";
 import { useScrollAnimation } from "@/lib/useScrollAnimation";
 import { createPageUrl } from "@/lib/utils";
-import { CONTACT_EMAIL, IMG } from "@/data/site";
+import { CONTACT_EMAIL, IMG, SITE_URL } from "@/data/site";
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
-  name: "Heart To Soul Psychotherapy",
-  description: "Professional mental health and wellness services",
-  url: typeof window !== "undefined" ? window.location.origin : "",
-  telephone: "+14166880131",
-  email: CONTACT_EMAIL,
-  address: { "@type": "PostalAddress", addressCountry: "CA", addressRegion: "ON" },
-  founder: { "@type": "Person", name: "Beenish Jalil", jobTitle: "Registered Psychotherapist (Q)" },
-  makesOffer: [
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Adult/Teen Psychotherapy" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Family Psychotherapy" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Parental Consultation" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Community Programs" } },
+  "@graph": [
+    {
+      "@type": ["MedicalBusiness", "ProfessionalService"],
+      "@id": `${SITE_URL}/#practice`,
+      name: "Heart To Soul Psychotherapy",
+      description:
+        "Compassionate, culturally responsive, trauma-informed psychotherapy for adults, teens, children, couples and families, online across Ontario and in person, in English, Urdu and Hindi.",
+      url: `${SITE_URL}/`,
+      logo: `${SITE_URL}${IMG.logo}`,
+      image: `${SITE_URL}${IMG.ogDefault}`,
+      telephone: "+14166880131",
+      email: CONTACT_EMAIL,
+      priceRange: "$80-$90",
+      address: { "@type": "PostalAddress", addressCountry: "CA", addressRegion: "ON" },
+      areaServed: { "@type": "State", name: "Ontario" },
+      knowsLanguage: ["English", "Urdu", "Hindi"],
+      medicalSpecialty: "Psychiatric",
+      knowsAbout: ["Anxiety", "Depression", "Trauma", "Phobias", "Relationship issues", "Grief", "Parenting", "Family conflict", "CBT", "DBT", "Mindfulness"],
+      founder: { "@id": `${SITE_URL}/#beenish-jalil` },
+      makesOffer: [
+        { "@type": "Offer", price: "80", priceCurrency: "CAD", itemOffered: { "@type": "Service", name: "Adult/Teen Psychotherapy", url: `${SITE_URL}/service/adult-teen-psychotherapy` } },
+        { "@type": "Offer", price: "90", priceCurrency: "CAD", itemOffered: { "@type": "Service", name: "Family Psychotherapy", url: `${SITE_URL}/service/family-psychotherapy` } },
+        { "@type": "Offer", price: "80", priceCurrency: "CAD", itemOffered: { "@type": "Service", name: "Parental Consultation", url: `${SITE_URL}/service/parental-consultation` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Community Programs", url: `${SITE_URL}/service/community-programs` } },
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#beenish-jalil`,
+      name: "Beenish Jalil",
+      jobTitle: "Registered Psychotherapist (Q)",
+      worksFor: { "@id": `${SITE_URL}/#practice` },
+    },
+    { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: `${SITE_URL}/`, name: "Heart To Soul Psychotherapy", inLanguage: "en-CA" },
   ],
 };
 
@@ -82,7 +103,12 @@ export default function Home() {
   useScrollAnimation();
   return (
     <>
-      <SEO structuredData={structuredData} />
+      <SEO
+        title="Heart to Soul Psychotherapy | Online & In-Person Therapy in Ontario | English, Urdu, Hindi"
+        description="Beenish Jalil, Registered Psychotherapist (Q), offers trauma-informed therapy for anxiety, depression, trauma, grief and relationships. Online across Ontario or in person. Free 15-minute consultation."
+        keywords="psychotherapist Ontario, online therapy Ontario, Urdu therapist, Hindi therapist, anxiety therapy, depression therapy, trauma therapy, family therapy, parental consultation"
+        structuredData={structuredData}
+      />
       <main className="min-h-screen">
         {/* Hero */}
         <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">

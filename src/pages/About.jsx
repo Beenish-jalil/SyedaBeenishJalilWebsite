@@ -5,14 +5,18 @@ import PageHero from "@/components/PageHero";
 import BackToTop from "@/components/BackToTop";
 import CTASection from "@/components/CTASection";
 import { useScrollAnimation } from "@/lib/useScrollAnimation";
-import { IMG, siteInfo } from "@/data/site";
+import { IMG, SITE_URL, siteInfo } from "@/data/site";
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${SITE_URL}/#beenish-jalil`,
   name: "Beenish Jalil",
   jobTitle: "Registered Psychotherapist (Q)",
-  worksFor: { "@type": "Organization", name: "Heart to Soul Psychotherapy" },
+  url: `${SITE_URL}/about`,
+  image: `${SITE_URL}${IMG.beenishAbout}`,
+  knowsLanguage: ["English", "Urdu", "Hindi"],
+  worksFor: { "@type": "Organization", "@id": `${SITE_URL}/#practice`, name: "Heart to Soul Psychotherapy" },
 };
 
 const principles = [

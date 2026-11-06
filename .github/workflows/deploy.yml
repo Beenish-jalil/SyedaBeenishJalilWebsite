@@ -24,12 +24,13 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      # Served at the root of the custom domain (hearttosoulpsychotherapy.ca)
-      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      # Served at the root of the custom domain (hearttosoulpsychotherapy.ca).
+      # build:seo = vite build, 404.html SPA fallback, then prerender every page
+      # to real HTML (for search engines / AI assistants) and write sitemap.xml.
+      - run: npm run build:seo
         env:
           BASE_PATH: /
-      # SPA fallback so deep links like /About don't 404
-      - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -1,3 +1,5 @@
+export const SITE_URL = "https://hearttosoulpsychotherapy.ca";
+
 export const CONTACT_EMAIL = "s.beenishjalil@gmail.com";
 
 export const siteInfo = {

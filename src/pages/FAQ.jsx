@@ -44,6 +44,16 @@ const faqs = [
   },
 ];
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+};
+
 export default function FAQ() {
   useScrollAnimation();
   return (
@@ -51,6 +61,7 @@ export default function FAQ() {
       <SEO
         title="FAQ - Heart to Soul Psychotherapy"
         description="Common questions about psychotherapy sessions, languages, online and in-person appointments, insurance receipts and confidentiality."
+        structuredData={structuredData}
       />
       <main className="min-h-screen">
         <PageHero backgroundImage={IMG.faqHero} title="FAQ" subtitle="A few things people often ask before starting therapy" height="50vh" />

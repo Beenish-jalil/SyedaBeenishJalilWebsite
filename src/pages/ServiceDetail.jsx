@@ -9,7 +9,7 @@ import BackToTop from "@/components/BackToTop";
 import { GradientBlobs } from "@/components/CTASection";
 import { useScrollAnimation } from "@/lib/useScrollAnimation";
 import { createPageUrl } from "@/lib/utils";
-import { IMG } from "@/data/site";
+import { IMG, SITE_URL } from "@/data/site";
 
 // Reachable at /service/:serviceId (not linked from the nav in the original, but routed).
 const services = {
@@ -123,7 +123,22 @@ export default function ServiceDetail() {
 
   return (
     <>
-      <SEO title={`${s.title} - Heart to Soul Psychotherapy`} />
+      <SEO
+        title={`${s.title} - Heart to Soul Psychotherapy | Online & In-Person in Ontario`}
+        description={s.description.length > 160 ? `${s.description.slice(0, s.description.lastIndexOf(" ", 155))}...` : s.description}
+        ogImage={s.heroImage}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: s.title,
+          description: s.description,
+          serviceType: s.title,
+          url: `${SITE_URL}/service/${serviceId}`,
+          provider: { "@id": `${SITE_URL}/#practice` },
+          areaServed: { "@type": "State", name: "Ontario" },
+          availableChannel: { "@type": "ServiceChannel", serviceUrl: `${SITE_URL}/contact`, availableLanguage: ["English", "Urdu", "Hindi"] },
+        }}
+      />
       <main className="min-h-screen">
         <PageHero backgroundImage={s.heroImage} title={s.title} subtitle="Comprehensive mental health support tailored to your needs" height="50vh" />
         <section className="py-20 bg-white">
