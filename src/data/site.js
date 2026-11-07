@@ -3,8 +3,8 @@ export const SITE_URL = "https://hearttosoulpsychotherapy.ca";
 export const CONTACT_EMAIL = "s.beenishjalil@gmail.com";
 
 export const siteInfo = {
-  phone: "(437) 747-6095",
-  psychologyTodayUrl: "https://www.psychologytoday.com/ca/therapists/karen-a-smith-mississauga-on/888409",
+  phone: "(416) 688-0131",
+  psychologyTodayUrl: "",
 };
 
 export const categoryColors = {
