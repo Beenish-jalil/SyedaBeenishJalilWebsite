@@ -23,7 +23,7 @@ export const IMG = {
   homeHero: img("8188ab8bb_image.png"),
   beenishHome: img("a096285d2_WhatsApp_Image_2026-11-02_at_104105_AM.jpeg"),
   beenishAbout: img("1d5ff112f_WhatsApp_Image_2026-08-242.jpeg"),
-  ogDefault: img("3029c42ef_AdobeStock_1624095881.jpg"),
+  ogDefault: img("whatsapp-preview.jpg"),
   adultTeenCard: img("2fec357ad_AdobeStock_1526421917.jpg"),
   communityCard: img("e5dce98c1_LogosGroupWorkshop.jpg"),
   parentalCard: img("88d28faab_AdobeStock_246220506.jpg"),
